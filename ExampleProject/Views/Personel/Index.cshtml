@@ -1,0 +1,9 @@
+﻿@*@model Personel*@
+@model ExampleProject.Models.ViewModels.PersonelCreateVM
+@*burada biz ancaq Adi ve Soyadi istifade edirik,ona gore butov modele ehtiyac yoxdur, buna gore de viewmodel ist. edirik*@
+
+<form asp-action="Index" asp-controller="Personel" method="post">
+	<input type="text" asp-for="Adi" /><br />
+	<input type="text" asp-for="Soyadi" /><br />
+	<button>Gonder</button>
+</form>

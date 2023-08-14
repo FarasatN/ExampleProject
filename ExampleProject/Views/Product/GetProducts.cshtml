@@ -1,0 +1,45 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*<h1>Products</h1>
+@model (ExampleProject.Models.Product p, ExampleProject.Models.User u)
+<h3>@Model.u.Name</h3>
+<h3>@Model.p.ProductName</h3>*@
+
+@*
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<button id="btnSend">Send</button>
+<script>
+	$("#btnSend").click(()=>{
+		$.post("https://localhost:7293/product/getproducts",{a:"a data",b:"b data"})
+	});
+</script>
+*@
+
+@*
+	Layout - tekrarlayan layoutlari ortaq bir yerden idare etmek ucumdur
+	shared icinde yerlesir
+*@
+
+@model ExampleProject.Models.Product
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<div asp-validation-summary="All">
+
+</div>
+
+<form asp-action="GetProducts" asp-controller="Product" method="post">
+	<input type="text" asp-for="ProductName" placeholder="ProductName"/>
+	<span asp-validation-for="ProductName"></span>
+	<br/>
+	<input type="number" asp-for="Quantity" placeholder="Quantity" />
+	<span asp-validation-for="Quantity"></span>
+	<br/>
+	<input type="email" asp-for="Email" placeholder="Email" />
+	<span asp-validation-for="Email"></span>
+	<br />
+	<button>Send</button>
+</form>
